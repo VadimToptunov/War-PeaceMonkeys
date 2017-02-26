@@ -31,22 +31,18 @@ def wildcards():
 
 def result_function():
 	# Create a complicated password containing uppercase, lowercase letters, wildcards and digits.
-    password = ''.join(random.choice(wildcards() + uppercase() + lowercase() + digits()) for x in range(8, 16))
-    return password
+        password = ''.join(random.choice(wildcards() + uppercase() + lowercase() + digits()) for x in range(8, 16))
+        return password
 
 def consecutive_check():
-    password = result_function()
-    pwd = str(password)
-    if not re.search(r"(.)\1\1", pwd):
-        print "Your password is: " + pwd
-    else:
-        new_pwd = result_function()
-        print "Your password: " + new_pwd
-
-
-def main():
-    consecutive_check()
+        password = result_function()
+        pwd = str(password)
+        if not re.search(r"(.)\1\1", pwd):
+		print "Your password is: " + pwd
+        else:
+                new_pwd = result_function()
+                print "Your password: " + new_pwd
 
 
 if __name__ == "__main__":
-    main()
+	consecutive_check()
