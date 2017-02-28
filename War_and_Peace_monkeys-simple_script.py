@@ -1,6 +1,16 @@
 # author == "Vadim Toptunov"
 # -*- coding: utf-8 -*-
 
+"""
+The simple script generates secure passwords, which contain lowercase and uppercase letters, digits and wildcards. 
+The passwords are also checked on 3 consecutive symbols in it. 
+
+To run the script just create a python file with it and run:
+
+Your@Comp:~$ python /home/your_directory/WPM-simple-script.py 
+
+"""
+
 import random
 import re
 import string
@@ -38,11 +48,20 @@ def consecutive_check():
         password = result_function()
         pwd = str(password)
         if not re.search(r"(.)\1\1", pwd):
-		print "Your password is: " + pwd
+		print "Password is: " + pwd
         else:
                 new_pwd = result_function()
-                print "Your password: " + new_pwd
+                print "Password: " + new_pwd
 
-
+		
+def wh():
+        qx = raw_input("How many passwords do you need? ")
+        qx = int(qx)
+        while qx != 0:
+                consecutive_check()
+                qx -= 1
+		
+		
+		
 if __name__ == "__main__":
-	consecutive_check()
+	wh()
