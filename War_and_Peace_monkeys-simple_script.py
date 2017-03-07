@@ -57,10 +57,21 @@ def consecutive_check():
 def wh():
         qx = raw_input("How many passwords do you need? ")
         qx = int(qx)
+	 direct = raw_input("Set your directory to create a new file" \
+        " for passwords: ")
+        date2day = datetime.date.today()
+        dt = []
+        dt.append(date2day)
+        today = str(dt[0])
+        filename = direct + "passwords-" + today + "-" + ".txt"
+
+        f1 = open(filename, "a")
         while qx != 0:
-                consecutive_check()
+                pwd = consecutive_check()
+		f1.write(pwd + "\n\n")
                 qx -= 1
-		
+        f1.close()
+	print "Now you can see your passwords here: ", filename
 		
 		
 if __name__ == "__main__":
